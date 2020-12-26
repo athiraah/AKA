@@ -1,0 +1,47 @@
+PROGRAM insertionSort;
+
+const
+	MAX_ARR = 100
+
+var
+    arr  : array[0..MAX_ARR] of integer
+		i, j : integer
+
+PROCEDURE printArray(input/output arr : array[0..MAX_ARR] of integer; output n : integer);
+ALGORITMA
+	i <- 0
+  for i < n do
+      OUTPUT(arr[i])
+  		j <- 0
+      for j < arr[i] do
+          OUTPUT("-")
+      endFor
+  endFor
+endProcedure
+
+PROCEDURE insertionSort(input/output arr : array[0..MAX_ARR] of integer; output n : integer);
+var lokal
+	key : integer
+ALGORITMA
+    i <- 0
+    for i < n do
+        key <- arr[i];
+        j <- i - 1;
+
+        while j >= 0 && arr[j] > key do
+            arr[j + 1] <- arr[j];
+            j <- j - 1;
+        endWhile
+        arr[j + 1] <- key;
+        printArray(arr, n);
+    endFor
+endProcedure
+
+ALGORITMA
+    srand(time(NULL))
+    i <- 0
+    for i < MAX_ARR do
+        arr[i] <- rand() % 50
+    endFor
+    
+    insertionSort(arr, MAX_ARR)

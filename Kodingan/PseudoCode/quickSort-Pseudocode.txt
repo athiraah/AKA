@@ -1,0 +1,55 @@
+PROGRAM quickSort;
+
+
+var
+    arr  : array[0..MAX_ARR] of integer
+		i, j : integer
+
+PROCEDURE printArray(input/output arr : array[0..MAX_ARR] of integer; output n : integer);
+ALGORITMA
+	i <- 0
+  for i < n do
+      OUTPUT(arr[i])
+  		j <- 0
+      for j < arr[i] do
+          OUTPUT("-")
+      endFor
+  endFor
+endProcedure
+
+PROCEDURE quickSort(input/output arr : array[0..MAX_ARR] of integer; output left, right : integer);
+var lokal
+	x : left
+	y : right
+	temp : integer
+	pivot : integer
+ALGORITMA
+    while(i < j) do
+	while (arr[i] < pivot) do
+	   while (arr[i] > pivot) do
+	    tmp = arr[i];
+	    arr[i] = arr[j];
+	    arr[j] = temp;
+    if (left < y) 
+	quickSort(arr,left, y)
+    if (x < right) 
+	quickSort(arr, x, right)       
+
+        
+endProcedure
+
+ALGORITMA
+    for(x=0; x < n) do
+        input "Banyak data [" x "] : ";
+	output data[x]
+    input "Data Sebelum Diurutkan: ";
+    for(x=0; x < n) do
+        input data[x]" ";
+    input" ";
+    quickSort(data, 0, n - 1);
+    input "Hasil dari Pengurutan: ";  
+    int x;
+    for (x=0; x < n) do
+        input data[x]<<" ";
+        input " ";
+    
